@@ -1,9 +1,15 @@
 function printSimpleNumbers(number) {
+    const cache = new Set()
+
     for (let i = 2; i <= number; i++) {
         let isSimple = true
 
-        for (let j = 2; j < i; j++) {
-            if (i !== j && i % j === 0) {
+        if (cache.has(i)) {
+            continue
+        }
+
+        for (const simple of Array.from(cache)) {
+            if (i !== simple && i % simple === 0) {
                 isSimple = false
                 break
             }
@@ -11,10 +17,11 @@ function printSimpleNumbers(number) {
 
         if (isSimple) {
             console.log(i)
+            cache.add(i)
         }
     }
 }
 
 console.log('Задача 7')
 console.log('Простые числа')
-printSimpleNumbers(100)
+printSimpleNumbers(10)
