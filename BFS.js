@@ -1,30 +1,30 @@
 const tree = {
     1: {
-        value: 'к',
+        value: '1',
         next: [2, 6]
     },
     2: {
-        value: 'о',
+        value: '2',
         next: [3, 4, 5]
     },
     3: {
-        value: 'л',
+        value: '3',
         next: []
     },
     4: {
-        value: 'б',
+        value: '4',
         next: []
     },
     5: {
-        value: 'а',
+        value: '5',
         next: []
     },
     6: {
-        value: 'с',
+        value: '6',
         next: [7]
     },
     7: {
-        value: 'а',
+        value: '7',
         next: []
     }
 }
@@ -39,12 +39,12 @@ function BFS(tree, root) {
     while (stack.length > 0) {
         const node = stack.shift()
         const { next, value } = tree[node]
-        stack.unshift(...next)
+        stack.push(...next)
 
         console.log(value)
     }
 }
 
-console.log('Задача #4')
-console.log('DFS')
+console.log('Задача #5')
+console.log('BFS')
 BFS(tree, 1)
