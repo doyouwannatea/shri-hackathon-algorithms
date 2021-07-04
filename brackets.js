@@ -13,12 +13,10 @@ function brackets(entry) {
         }
 
         if (closingBrackets.test(bracket)) {
-            if (stack.length === 0)
-                return false
-
             const lastOpeningBracket = stack.pop()
 
-            if (lastOpeningBracket === '(' && bracket !== ')' ||
+            if (!lastOpeningBracket ||
+                lastOpeningBracket === '(' && bracket !== ')' ||
                 lastOpeningBracket === '[' && bracket !== ']' ||
                 lastOpeningBracket === '{' && bracket !== '}') {
                 return false
