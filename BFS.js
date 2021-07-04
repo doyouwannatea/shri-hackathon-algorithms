@@ -33,13 +33,13 @@ function BFS(tree, root) {
     /**
      * @type array
      */
-    const stack = tree[root].next
+    const queue = tree[root].next
     console.log(tree[root].value)
 
-    while (stack.length > 0) {
-        const node = stack.shift()
+    while (queue.length > 0) {
+        const node = queue.shift()
         const { next, value } = tree[node]
-        stack.push(...next)
+        queue.push(...next)
 
         console.log(value)
     }
